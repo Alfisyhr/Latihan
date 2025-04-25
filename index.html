@@ -7,7 +7,7 @@
     <style>
       body {
         font-family: 'Poppins', sans-serif;
-        background-color: #0511b9da;
+        background-color: #ffffffda;
         margin: 0;
         padding: 40px 0;
       }
@@ -87,7 +87,7 @@
       }
 
       button:hover {
-        background-color: #2980b9;
+        background-color: #ffffff;
       }
       @media (max-width: 600px) {
   .profile-container {
@@ -110,10 +110,52 @@
     font-size: 16px;
   }
 }
+/* Tombol Dark Mode */
+#toggle-dark-mode {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 100;
+  background-color: #444;
+  color: white;
+  border: none;
+  padding: 10px 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+/* Tema Gelap */
+body.dark-mode {
+  background-color: #121212;
+}
+
+body.dark-mode .profile-card {
+  background-color: #1e1e1e;
+  color: #f0f0f0;
+}
+
+body.dark-mode h1,
+body.dark-mode h2,
+body.dark-mode a {
+  color: #70a5ff;
+}
+
+body.dark-mode button {
+  background-color: #70a5ff;
+  color: black;
+}
+
+body.dark-mode button:hover {
+  background-color: #508ee5;
+}
+
 
     </style>
   </head>
   <body>
+    <button id="toggle-dark-mode">🌙 Dark Mode</button>
+
 
     <div class="profile-card">
       <div class="profile-container">
@@ -144,10 +186,28 @@
 
           <a href="https://instagram.com/alfisyh_ri" target="_blank">
             <button>Kunjungi Instagram Saya</button>
+            <a href="portofolio.html">
+              <button>Lihat Portofolio</button>
+            </a>
+            
           </a>
         </div>
       </div>
     </div>
-
+    <script>
+      const toggleBtn = document.getElementById("toggle-dark-mode");
+    
+      toggleBtn.addEventListener("click", () => {
+        document.body.classList.toggle("dark-mode");
+    
+        // Ganti teks tombol
+        if (document.body.classList.contains("dark-mode")) {
+          toggleBtn.textContent = "☀️ Light Mode";
+        } else {
+          toggleBtn.textContent = "🌙 Dark Mode";
+        }
+      });
+    </script>
+    
   </body>
 </html>
