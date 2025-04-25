@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>My Design</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    .slider {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  border-radius: 10px;
+  margin-bottom: 20px;
+}
+
+.slide {
+  display: none;
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  transition: opacity 0.5s ease;
+}
+
+.slide.active {
+  display: block;
+}
+
+.nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(0,0,0,0.5);
+  color: white;
+  border: none;
+  font-size: 24px;
+  padding: 8px 12px;
+  cursor: pointer;
+  border-radius: 4px;
+  user-select: none;
+}
+
+.nav.prev {
+  left: 10px;
+}
+
+.nav.next {
+  right: 10px;
+}
+
+.nav:hover {
+  background-color: rgba(0,0,0,0.7);
+}
+
+    * {
+      transition: background-color 0.4s ease, color 0.4s ease;
+    }
+
+    .fade-slide-up {
+      opacity: 0;
+      transform: translateY(40px);
+      animation: fadeSlideUp 0.8s ease forwards;
+    }
+
+    @keyframes fadeSlideUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: #f4f4f4;
+      margin: 0;
+      padding: 40px 20px;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: auto;
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      padding: 30px;
+    }
+
+    h1 {
+      text-align: center;
+      color: #2c3e50;
+      margin-bottom: 20px;
+    }
+
+    img {
+      width: 100%;
+      border-radius: 10px;
+      margin-bottom: 20px;
+    }
+
+    p {
+      color: #555;
+      line-height: 1.6;
+    }
+
+    a.button {
+      display: inline-block;
+      margin-top: 30px;
+      padding: 10px 20px;
+      background-color: #3498db;
+      color: white;
+      text-decoration: none;
+      border-radius: 8px;
+      transition: background-color 0.3s ease;
+    }
+
+    a.button:hover {
+      background-color: #2980b9;
+    }
+
+    #toggle-dark-mode {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      z-index: 100;
+      background-color: #444;
+      color: white;
+      border: none;
+      padding: 10px 16px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 14px;
+    }
+
+    body.dark-mode {
+      background-color: #121212;
+    }
+
+    body.dark-mode .container {
+      background-color: #1e1e1e;
+      color: #eee;
+    }
+
+    body.dark-mode a.button {
+      background-color: #70a5ff;
+      color: black;
+    }
+    .thumbnails {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 15px;
+  flex-wrap: wrap;
+}
+
+.thumb {
+  width: 60px;
+  height: 40px;
+  object-fit: cover;
+  border: 2px solid transparent;
+  border-radius: 5px;
+  cursor: pointer;
+  opacity: 0.7;
+  transition: all 0.3s ease;
+}
+
+.thumb:hover,
+.thumb.active-thumb {
+  border-color: #3498db;
+  opacity: 1;
+}
+
+  </style>
+</head>
+<body>
+
+  <button id="toggle-dark-mode">🌙 Dark Mode</button>
+
+  <div class="container fade-slide-up">
+    <div id="slider" class="slider fade-slide-up" style="animation-delay: 0.2s;">
+        <h1>Social Media Design</h1>
+        <img src="Porto1.jpg" class="slide active" alt="Slide 1">
+        <img src="Porto2.jpg" class="slide" alt="Slide 2">
+        <img src="Porto3.jpg" class="slide" alt="Slide 3">
+        <img src="Porto4.jpg" class="slide" alt="Slide 4">
+        <img src="Porto5.jpg" class="slide" alt="Slide 5">
+        <img src="Porto6.jpg" class="slide" alt="Slide 6">
+      
+        <button class="nav prev">&#10094;</button>
+        <button class="nav next">&#10095;</button>
+        <div class="thumbnails">
+            <img src="Porto1.jpg" class="thumb active-thumb" data-index="0" alt="Thumb 1">
+            <img src="Porto2.jpg" class="thumb" data-index="1" alt="Thumb 2">
+            <img src="Porto3.jpg" class="thumb" data-index="2" alt="Thumb 3">
+            <img src="Porto4.jpg" class="thumb" data-index="3" alt="Thumb 4">
+            <img src="Porto5.jpg" class="thumb" data-index="4" alt="Thumb 5">
+            <img src="Porto6.jpg" class="thumb" data-index="5" alt="Thumb 6">
+          </div>
+          
+      </div>
+      
+    
+    <p class="fade-slide-up" style="animation-delay: 0.6s;">
+      Lihat karya lainnya di 
+      <a href="https://instagram.com/perci.design" target="_blank">Instagram saya</a>.
+    </p>
+
+    <a href="portofolio.html" class="button fade-slide-up" style="animation-delay: 0.8s;">
+      ⬅ Kembali ke Portofolio
+    </a>
+  </div>
+  <script>
+    const toggleBtn = document.getElementById("toggle-dark-mode");
+  
+    toggleBtn.addEventListener("click", () => {
+      document.body.classList.toggle("dark-mode");
+      toggleBtn.textContent = document.body.classList.contains("dark-mode")
+        ? "☀️ Light Mode"
+        : "🌙 Dark Mode";
+    });
+  
+    // SLIDER
+    const slides = document.querySelectorAll(".slide");
+    const prev = document.querySelector(".prev");
+    const next = document.querySelector(".next");
+    const thumbs = document.querySelectorAll(".thumb");
+    const sliderElement = document.getElementById("slider");
+    let current = 0;
+  
+    function showSlide(index) {
+      slides.forEach((slide, i) => {
+        slide.classList.remove("active");
+        if (i === index) slide.classList.add("active");
+      });
+      updateActiveThumb();
+    }
+  
+    function updateActiveThumb() {
+      thumbs.forEach((thumb, i) => {
+        thumb.classList.toggle("active-thumb", i === current);
+      });
+    }
+  
+    prev.addEventListener("click", () => {
+      current = (current - 1 + slides.length) % slides.length;
+      showSlide(current);
+    });
+  
+    next.addEventListener("click", () => {
+      current = (current + 1) % slides.length;
+      showSlide(current);
+    });
+  
+    thumbs.forEach((thumb) => {
+      thumb.addEventListener("click", () => {
+        const index = parseInt(thumb.dataset.index);
+        current = index;
+        showSlide(current);
+      });
+    });
+  
+    // AUTOPLAY
+    let autoSlide = setInterval(() => {
+      current = (current + 1) % slides.length;
+      showSlide(current);
+    }, 4000);
+
+    // SWIPE for Touch Devices
+let startX = 0;
+let endX = 0;
+
+sliderElement.addEventListener("touchstart", (e) => {
+  startX = e.touches[0].clientX;
+});
+
+sliderElement.addEventListener("touchmove", (e) => {
+  endX = e.touches[0].clientX;
+});
+
+sliderElement.addEventListener("touchend", () => {
+  const diff = startX - endX;
+
+  if (diff > 50) {
+    // Geser ke kiri → slide selanjutnya
+    current = (current + 1) % slides.length;
+    showSlide(current);
+  } else if (diff < -50) {
+    // Geser ke kanan → slide sebelumnya
+    current = (current - 1 + slides.length) % slides.length;
+    showSlide(current);
+  }
+});
+
+  
+    // PAUSE on HOVER
+    sliderElement.addEventListener("mouseenter", () => {
+      clearInterval(autoSlide);
+    });
+  
+    sliderElement.addEventListener("mouseleave", () => {
+      autoSlide = setInterval(() => {
+        current = (current + 1) % slides.length;
+        showSlide(current);
+      }, 4000);
+    });
+  
+    // INIT
+    showSlide(current);
+  </script>
+  
+</body>
+</html>
