@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>My Design</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    * {
+      transition: background-color 0.4s ease, color 0.4s ease;
+    }
+
+    .fade-slide-up {
+      opacity: 0;
+      transform: translateY(40px);
+      animation: fadeSlideUp 0.8s ease forwards;
+    }
+
+    @keyframes fadeSlideUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: #f4f4f4;
+      margin: 0;
+      padding: 40px 20px;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: auto;
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      padding: 30px;
+    }
+
+    h1 {
+      text-align: center;
+      color: #2c3e50;
+      margin-bottom: 20px;
+    }
+
+    img {
+      width: 100%;
+      border-radius: 10px;
+      margin-bottom: 20px;
+    }
+
+    p {
+      color: #555;
+      line-height: 1.6;
+    }
+
+    a.button {
+      display: inline-block;
+      margin-top: 30px;
+      padding: 10px 20px;
+      background-color: #3498db;
+      color: white;
+      text-decoration: none;
+      border-radius: 8px;
+      transition: background-color 0.3s ease;
+    }
+
+    a.button:hover {
+      background-color: #2980b9;
+    }
+
+    #toggle-dark-mode {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      z-index: 100;
+      background-color: #444;
+      color: white;
+      border: none;
+      padding: 10px 16px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 14px;
+    }
+
+    body.dark-mode {
+      background-color: #121212;
+    }
+
+    body.dark-mode .container {
+      background-color: #1e1e1e;
+      color: #eee;
+    }
+
+    body.dark-mode a.button {
+      background-color: #70a5ff;
+      color: black;
+    }
+  </style>
+</head>
+<body>
+
+  <button id="toggle-dark-mode">🌙 Dark Mode</button>
+
+  <div class="container fade-slide-up">
+    <h1>Design Logo</h1>
+    <img src="DesignLogo.jpg" alt="Preview My Design" style="animation-delay: 0.2s;" class="fade-slide-up">
+    
+    <p class="fade-slide-up" style="animation-delay: 0.4s;">
+        Logo PERCI DESIGN ini menampilkan konsep yang minimalis namun kuat secara visual, dengan latar belakang kuning cerah yang memberikan kesan enerjik, kreatif, dan menarik perhatian. Elemen-elemen desainnya dirancang dengan simetri yang seimbang, menggunakan bentuk garis dan lingkaran di bagian atas untuk menciptakan kesan profesional dan modern.<br>
+      <strong>Tools:</strong> CorelDRAW
+    </p>
+
+    <p class="fade-slide-up" style="animation-delay: 0.6s;">
+      Lihat karya lainnya di 
+      <a href="https://instagram.com/perci.design" target="_blank">Instagram saya</a>.
+    </p>
+
+    <a href="portofolio.html" class="button fade-slide-up" style="animation-delay: 0.8s;">
+      ⬅ Kembali ke Portofolio
+    </a>
+  </div>
+
+  <script>
+    const toggleBtn = document.getElementById("toggle-dark-mode");
+
+    toggleBtn.addEventListener("click", () => {
+      document.body.classList.toggle("dark-mode");
+      toggleBtn.textContent = document.body.classList.contains("dark-mode")
+        ? "☀️ Light Mode"
+        : "🌙 Dark Mode";
+    });
+  </script>
+</body>
+</html>
