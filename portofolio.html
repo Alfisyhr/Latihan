@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Portofolio Debri</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: #f4f4f4;
+      margin: 0;
+      padding: 40px 20px;
+    }
+
+    h1 {
+      text-align: center;
+      color: #2c3e50;
+      margin-bottom: 40px;
+    }
+
+    .portfolio-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 24px;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    .card {
+      background-color: #fff;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      overflow: hidden;
+      transition: transform 0.3s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+    }
+
+    .card img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+    }
+
+    .info {
+      padding: 15px;
+    }
+
+    .info h3 {
+      margin: 0 0 10px;
+      color: #333;
+      font-size: 18px;
+    }
+
+    .info a {
+      text-decoration: none;
+      color: #3498db;
+      font-size: 14px;
+    }
+
+    .back-button {
+      display: block;
+      width: fit-content;
+      margin: 20px auto 0;
+      background-color: #3498db;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 8px;
+      font-size: 14px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      text-align: center;
+    }
+
+    .back-button:hover {
+      background-color: #2980b9;
+    }
+    /* Tombol Dark Mode */
+#toggle-dark-mode {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 100;
+  background-color: #444;
+  color: white;
+  border: none;
+  padding: 10px 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+/* DARK MODE */
+body.dark-mode {
+  background-color: #121212;
+}
+
+body.dark-mode h1,
+body.dark-mode .info h3 {
+  color: #f0f0f0;
+}
+
+body.dark-mode .card {
+  background-color: #1e1e1e;
+}
+
+body.dark-mode .info a {
+  color: #70a5ff;
+}
+
+body.dark-mode .back-button {
+  background-color: #70a5ff;
+  color: black;
+}
+
+body.dark-mode .back-button:hover {
+  background-color: #508ee5;
+}
+
+  </style>
+</head>
+<body><button id="toggle-dark-mode">🌙 Dark Mode</button>
+
+
+  <h1>Portofolio Saya</h1>
+
+  <div class="portfolio-grid">
+
+    <div class="card">
+      <img src="Porto1.jpg" alt="Karya 1">
+      <div class="info">
+        <h3>Social Media Design</h3>
+        <a href="https://instagram.com/perci.design" target="_blank">Lihat di Instagram</a>
+      </div>
+    </div>
+
+    <div class="card">
+      <img src="DesignCV.jpg" alt="Karya 2">
+      <div class="info">
+        <h3>CV Design</h3>
+        <a href="#">Lihat Detail</a>
+      </div>
+    </div>
+
+    <div class="card">
+      <img src="DesignLogo.jpg" alt="Karya 3">
+      <div class="info">
+        <h3>Logo Design</h3>
+        <a href="#">Lihat Detail</a>
+      </div>
+    </div>
+
+  </div>
+
+  <a href="index.html"><button class="back-button">⬅ Kembali ke Profil</button></a>
+  <script>
+    const toggleBtn = document.getElementById("toggle-dark-mode");
+  
+    toggleBtn.addEventListener("click", () => {
+      document.body.classList.toggle("dark-mode");
+  
+      // Ganti teks tombol
+      if (document.body.classList.contains("dark-mode")) {
+        toggleBtn.textContent = "☀️ Light Mode";
+      } else {
+        toggleBtn.textContent = "🌙 Dark Mode";
+      }
+    });
+  </script>
+  
+</body>
+</html>
